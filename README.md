@@ -9,10 +9,9 @@
 `py access.py`
 
 2) Войдите в аккаунт ВК и из ссылки возьмите токен
-Пример ссылки:
+<br>Пример ссылки:<br>
 https://oauth.vk.com/blank.html#access_token=vk1.a.enveloupeBazaruDjeksonAngulaiVoidSexStevieBlowjobs&expires_in=0&user_id=6666666666
-
-Где токен:
+<br>Где токен:<br>
 `vk1.a.enveloupeBazaruDjeksonAngulaiVoidSexStevieBlowjobs`
 
 3) Добавляем токен в 4 строку файла main.py

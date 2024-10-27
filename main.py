@@ -1,12 +1,22 @@
 import vk_api
 import time
+import requests
+
+session = requests.Session()
+session.headers.update({
+    "Cache-Control": "no-cache, no-store, must-revalidate",
+    "Pragma": "no-cache",
+    "Expires": "0"
+})
 
 access_token = 'vk1.a.RaayURQlSrh4ixOZohffEhtJ0K8ociQsel6eNMoSVJLn6hqlKNVXQ53oNoUrRN-XS_zikmePUV0S1VVU1YC8JKh4IaYDuEMEDPzVcVHIUIhqAxuxlvTZPIB1XAMirOw3GGsVhWhr6Y7f6aXykyIXAqdu2HEIQaekjjjr7nMNPwrXtr_5-0-3hz6vUJM_c8iden_m63xDP5BjaZZ0jFECTw'
 
 group_id = 218375169
 
-vk_session = vk_api.VkApi(token=access_token)
+vk_session = vk_api.VkApi(token=access_token, session=session)
 vk = vk_session.get_api()
+
+start_time = time.time()
 
 def get_all_posts(group_id, count=100):
     posts = []
@@ -60,3 +70,7 @@ for post_id, count in post_keyword_comment_counts.items():
     print(f"Пост ID {post_id}: {count} комментариев со словом '{keyword}'")
 
 print(f"Общее количество комментариев со словом '{keyword}' во всех постах: {total_keyword_mentions}")
+
+end_time = time.time()
+execution_time = end_time - start_time
+print(f"Время выполнения скрипта: {execution_time:.2f} секунд")
